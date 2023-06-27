@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output  } from '@angular/core';
 import { Pedidos, Product, Producto } from '../models/models';
 import { PedidosService } from '../Services/pedidos.service';
 
@@ -8,6 +8,12 @@ import { PedidosService } from '../Services/pedidos.service';
   styleUrls: ['./detallespedido.component.css']
 })
 export class DetallespedidoComponent {
+
+  @Output() cerrar: EventEmitter<void> = new EventEmitter<void>();
+
+  cerrarDetalles() {
+    this.cerrar.emit();
+  }
 
   
 

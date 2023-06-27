@@ -9,6 +9,19 @@ import {AngularFireModule} from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { DetallespedidoComponent } from './detallespedido/detallespedido.component';
+import { Router, RouterModule, Routes, ExtraOptions} from '@angular/router'
+
+const  routes: Routes = [
+ 
+  { path: 'detallespedido', component: DetallespedidoComponent },
+  
+
+
+ 
+  
+  
+  
+]
 
 @NgModule({
   declarations: [
@@ -18,8 +31,9 @@ import { DetallespedidoComponent } from './detallespedido/detallespedido.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule
+    AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule, RouterModule
   ],
+  exports:[RouterModule],
   providers: [PedidosService],
   bootstrap: [AppComponent]
 })

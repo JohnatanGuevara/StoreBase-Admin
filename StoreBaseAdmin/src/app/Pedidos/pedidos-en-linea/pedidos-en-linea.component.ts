@@ -25,9 +25,14 @@ export class PedidosEnLineaComponent implements OnInit {
   producto: Producto[]=[]
 
   selectedPedido: Product| null = null;
+  mostrarDetalles: boolean = false;
 
   selectPedido(pedido: any) {
     this.selectedPedido = pedido;
+    this.mostrarDetalles = true;
+  }
+  cerrarDetalles() {
+    this.mostrarDetalles = false;
   }
 
 
@@ -46,6 +51,7 @@ export class PedidosEnLineaComponent implements OnInit {
      
     });
   }
+  
 
   
 }

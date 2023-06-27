@@ -1,0 +1,18 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo opaco */
+    z-index: 9999; /* Asegura que el componente esté por encima del contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .component-container {
+    background-color: white; /* Color de fondo del componente */
+    padding: 20px;
+    border-radius: 5px;
+  }

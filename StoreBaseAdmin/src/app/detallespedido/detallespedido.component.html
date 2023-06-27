@@ -1,10 +1,15 @@
-<div *ngIf="pedido">
+<div class="overlay" *ngIf="pedido">
+  <div class="component-container">
+<div >
+    <button (click)="cerrarDetalles()">Cerrar</button>
     <h2>Detalles del Pedido</h2>
-    <p>ID: {{pedido.id}}</p>
-    <p>Total Price: {{pedido.totalPrice}}</p>
+    <p>ID del Pedido: {{pedido.id}}</p>
+    <p>Monto del Pedido: ${{pedido.totalPrice}}</p>
     
     <h3>Productos:</h3>
     <ul>
       <li *ngFor="let producto of pedido.productos">{{producto.nombre}} - Cantidad: {{producto.cantidad}}</li>
     </ul>
+  </div>
+</div>
   </div>
