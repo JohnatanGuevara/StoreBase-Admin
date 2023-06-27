@@ -9,6 +9,11 @@ export interface Product {
     isAddedToCart: boolean;
     productos:Producto[];
     totalPrice: number;
+    metodoPago:string;
+    nombrePagador:string;
+    cedulaPagador:string;
+    referencia:string;
+    numeroTelefono:string;
 
     
 }

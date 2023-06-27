@@ -5,11 +5,17 @@
     <h2>Detalles del Pedido</h2>
     <p>ID del Pedido: {{pedido.id}}</p>
     <p>Monto del Pedido: ${{pedido.totalPrice}}</p>
+    <p>Metodo de Pago: {{pedido.metodoPago}}</p>
+    <p># Referencia de Pago: {{pedido.referencia}}</p>
+    <p>A nombre de: {{pedido.nombrePagador}}</p>
+    <p>Cédula: {{pedido.cedulaPagador}}</p>
+    <p>Teléfono: {{pedido.numeroTelefono}}</p>
     
     <h3>Productos:</h3>
     <ul>
       <li *ngFor="let producto of pedido.productos">{{producto.nombre}} - Cantidad: {{producto.cantidad}}</li>
     </ul>
   </div>
+  <button>Confirmar Pago</button>
 </div>
   </div>

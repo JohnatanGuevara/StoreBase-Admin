@@ -28,6 +28,11 @@ export class DetallespedidoComponent {
     isAddedToCart: true,
     productos:[{nombre:'', cantidad:0}],
     totalPrice: 0,
+    metodoPago:'',
+    nombrePagador:'',
+    cedulaPagador:'',
+    referencia:'',
+    numeroTelefono:'',
   }];
 
   producto: Producto[]=[]
