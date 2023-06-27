@@ -24,6 +24,12 @@ export class PedidosEnLineaComponent implements OnInit {
 
   producto: Producto[]=[]
 
+  selectedPedido: Product| null = null;
+
+  selectPedido(pedido: any) {
+    this.selectedPedido = pedido;
+  }
+
 
   constructor( private pedidosService: PedidosService ) {}
 

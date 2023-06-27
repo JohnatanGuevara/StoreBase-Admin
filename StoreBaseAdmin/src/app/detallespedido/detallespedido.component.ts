@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { Pedidos } from '../models/models';
+import { Component, Input } from '@angular/core';
+import { Pedidos, Product, Producto } from '../models/models';
+import { PedidosService } from '../Services/pedidos.service';
 
 @Component({
   selector: 'app-detallespedido',
@@ -8,7 +9,46 @@ import { Pedidos } from '../models/models';
 })
 export class DetallespedidoComponent {
 
-  selectedPedido: Pedidos | null = null;
-  pedido!: Pedidos;
+  
 
+  products: Product []= [{
+    id: '',
+    nombre: '',
+    descripcion: '',
+    precio: 0,
+    stock: '',
+    image: '',
+    cantidad: 0,
+    isAddedToCart: true,
+    productos:[{nombre:'', cantidad:0}],
+    totalPrice: 0,
+  }];
+
+  producto: Producto[]=[]
+
+  @Input() selectedPedido!: Product;
+  @Input() pedido: any;
+
+  selectPedido(pedido: Product) {
+    this.selectedPedido = pedido;
+  }
+
+
+  constructor( private pedidosService: PedidosService ) {}
+
+  
+  ngOnInit() {
+   
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.pedidosService.getProducts().subscribe(products => {
+      this.products = products;
+      console.log(products)
+     
+    });
+  }
+
+  
 }

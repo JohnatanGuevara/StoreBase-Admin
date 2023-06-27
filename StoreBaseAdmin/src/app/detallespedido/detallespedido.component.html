@@ -1,1 +1,10 @@
-<p>detallespedido works!</p>
+<div *ngIf="pedido">
+    <h2>Detalles del Pedido</h2>
+    <p>ID: {{pedido.id}}</p>
+    <p>Total Price: {{pedido.totalPrice}}</p>
+    
+    <h3>Productos:</h3>
+    <ul>
+      <li *ngFor="let producto of pedido.productos">{{producto.nombre}} - Cantidad: {{producto.cantidad}}</li>
+    </ul>
+  </div>

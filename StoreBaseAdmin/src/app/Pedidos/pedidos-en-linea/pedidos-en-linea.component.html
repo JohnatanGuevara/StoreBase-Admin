@@ -69,7 +69,7 @@
             </colgroup>
             <thead class="u-grey-50 u-table-header u-table-header-1">
               <tr style="height: 56px;">
-                <th class="u-border-1 u-border-grey-50 u-table-cell">N* PEDIDO</th>
+                <th class="u-border-1 u-border-grey-50 u-table-cell">ID PEDIDO</th>
                 <th class="u-border-1 u-border-grey-50 u-table-cell">PRODUCTOS</th>
                 <th class="u-border-1 u-border-grey-50 u-table-cell">MONTO</th>
                 <th class="u-border-1 u-border-grey-50 u-table-cell">TIPO DE PAGO</th>
@@ -77,11 +77,9 @@
             </thead>
             <tbody>
               <tr *ngFor="let pedido of products" class="u-table-body">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">{{pedido.id}}</td>
+                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell"><a (click)="selectPedido(pedido)"> {{pedido.id}}</a></td>
                 <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">
-                  <ul>
-                    <li *ngFor="let producto of pedido.productos">{{producto.nombre}} - Cantidad: {{producto.cantidad}}</li>
-                  </ul>
+                 
                 </td>
                 <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">${{pedido.totalPrice}}</td>
                 <!-- Agrega más columnas para mostrar otras propiedades de los productos si es necesario -->
@@ -89,38 +87,7 @@
             </tbody>
           </table>
         </div>
-        <div class="u-table u-table-responsive u-table-2">
-          <table class="u-table-entity">
-            <colgroup>
-              <col width="50.6%">
-              <col width="49.4%">
-            </colgroup>
-            <thead class="u-grey-50 u-table-header u-table-header-2">
-              <tr style="height: 25px;">
-                <th class="u-border-1 u-border-grey-50 u-table-cell">N* PEDIDO</th>
-                <th class="u-border-1 u-border-grey-50 u-table-cell">STATUS</th>
-              </tr>
-            </thead>
-            <tbody class="u-table-body">
-              <tr style="height: 53px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 1</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 54px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 2</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 54px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 3</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-              <tr style="height: 54px;">
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Row 4</td>
-                <td class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-table-cell">Description</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        
       </div>
     </section>
     
@@ -128,3 +95,4 @@
    
   
 </body></html>
+<app-detallespedido [pedido]="selectedPedido"></app-detallespedido>
