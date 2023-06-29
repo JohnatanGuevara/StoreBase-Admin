@@ -9,11 +9,18 @@ import {AngularFireModule} from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { DetallespedidoComponent } from './detallespedido/detallespedido.component';
-import { Router, RouterModule, Routes, ExtraOptions} from '@angular/router'
+import { Router, RouterModule, Routes, ExtraOptions} from '@angular/router';
+import { AgregaProductoComponent } from './agrega-producto/agrega-producto.component';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
+import { FormsModule } from '@angular/forms';
 
 const  routes: Routes = [
+
+  {path:'', component: PedidosEnLineaComponent},
  
   { path: 'detallespedido', component: DetallespedidoComponent },
+  {path:'agregaproducto', component: AgregaProductoComponent},
+  {path:'pedidos', component: PedidosEnLineaComponent}
   
 
 
@@ -27,13 +34,15 @@ const  routes: Routes = [
   declarations: [
     AppComponent,
     PedidosEnLineaComponent,
-    DetallespedidoComponent
+    DetallespedidoComponent,
+    AgregaProductoComponent,
+    ControlPanelComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule, RouterModule
+    AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule, RouterModule.forRoot(routes), FormsModule
   ],
-  exports:[RouterModule],
+  exports:[RouterModule, FormsModule],
   providers: [PedidosService],
   bootstrap: [AppComponent]
 })
